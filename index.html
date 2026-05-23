@@ -1,186 +1,191 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sana Saad | AI & Robotics Portfolio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sana Saad | AI, Robotics & Embedded Systems Portfolio</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
-<style>
-*{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth}
-body{font-family:'Inter',sans-serif;background:#050816;color:white;overflow-x:hidden}
-body::before{content:'';position:fixed;inset:0;background:radial-gradient(circle at 15% 20%,rgba(0,234,255,.18),transparent 35%),radial-gradient(circle at 85% 75%,rgba(140,82,255,.15),transparent 35%);z-index:-1}
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth}
+    :root{--bg:#030712;--card:#081426;--card2:#0d1b33;--cyan:#00eaff;--blue:#258bff;--purple:#8b5cf6;--text:#f8fbff;--muted:#b9c7dc;--line:rgba(70,157,255,.25)}
+    body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;line-height:1.65}
+    body::before{content:"";position:fixed;inset:0;background:radial-gradient(circle at 15% 20%,rgba(0,234,255,.18),transparent 32%),radial-gradient(circle at 86% 70%,rgba(139,92,246,.18),transparent 34%),linear-gradient(135deg,#061929 0%,#050816 45%,#120d2b 100%);z-index:-3}
+    body::after{content:"";position:fixed;inset:0;background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:42px 42px;z-index:-2;mask-image:linear-gradient(to bottom,black,transparent 88%)}
+    a{text-decoration:none;color:inherit}.container{width:min(1180px,92%);margin:auto}.gradient{background:linear-gradient(90deg,var(--cyan),#3b82f6,var(--purple));-webkit-background-clip:text;color:transparent}.highlight{color:var(--cyan)}
 
-nav{position:fixed;top:0;width:100%;padding:22px 9%;display:flex;justify-content:space-between;align-items:center;background:rgba(5,8,22,.88);backdrop-filter:blur(15px);border-bottom:1px solid rgba(255,255,255,.08);z-index:999}
-.logo{font-size:30px;font-weight:800;background:linear-gradient(90deg,#00EAFF,#8B5CF6);-webkit-background-clip:text;color:transparent}
-nav ul{display:flex;gap:22px;list-style:none;flex-wrap:wrap}
-nav a{color:white;text-decoration:none;font-weight:600;transition:.3s}
-nav a:hover{color:#00EAFF}
+    nav{position:fixed;top:0;left:0;width:100%;z-index:999;background:rgba(3,7,18,.82);backdrop-filter:blur(18px);border-bottom:1px solid rgba(255,255,255,.08)}
+    .nav-inner{height:78px;display:flex;align-items:center;justify-content:space-between}.logo{font-size:1.85rem;font-weight:900}.nav-links{display:flex;gap:26px;list-style:none}.nav-links a{font-weight:700;color:#eef3fb;transition:.25s}.nav-links a:hover{color:var(--cyan)}.nav-cta{border:1px solid rgba(0,234,255,.45);border-radius:999px;padding:10px 18px;color:var(--cyan);font-weight:800;transition:.25s}.nav-cta:hover{background:var(--cyan);color:#04101f;box-shadow:0 0 25px rgba(0,234,255,.35)}
 
-.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:130px 10%;gap:70px;flex-wrap:wrap}
-.hero-image img{width:320px;height:320px;border-radius:50%;object-fit:cover;border:5px solid #00EAFF;box-shadow:0 0 45px rgba(0,234,255,.45);transition:.4s}
-.hero-image img:hover{transform:scale(1.04)}
-.hero-text{max-width:650px}
-.hero-text h1{font-size:60px;margin-bottom:10px}
-.hero-text span{color:#00EAFF}
-.hero-text h3{font-size:25px;color:#B7C3D3;margin-bottom:20px}
-.hero-text p{line-height:1.8;font-size:17px;color:#D5DFEA;margin-bottom:35px}
+    .hero{min-height:100vh;display:grid;align-items:center;padding:125px 0 70px}.hero-grid{display:grid;grid-template-columns:1fr .86fr;gap:54px;align-items:center}.badge{display:inline-flex;align-items:center;gap:10px;padding:9px 14px;border-radius:12px;border:1px solid rgba(0,234,255,.35);background:rgba(0,234,255,.08);color:#39fff1;font-weight:900;font-size:.78rem;letter-spacing:.04em;text-transform:uppercase}.badge::before{content:"";width:8px;height:8px;border-radius:50%;background:#39fff1;box-shadow:0 0 15px #39fff1}.hero h1{font-size:clamp(3rem,6vw,5.7rem);line-height:1.05;letter-spacing:-.06em;margin:28px 0 18px;font-weight:950}.hero h3{font-size:1.35rem;color:#d6e2f3;margin-bottom:14px}.hero p{font-size:1.08rem;color:#c9d6e8;max-width:680px}.hero-meta{display:flex;gap:24px;flex-wrap:wrap;margin:25px 0;color:#dce7f7}.hero-meta i{color:var(--cyan);margin-right:8px}.buttons{display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-top:30px}.btn{display:inline-flex;align-items:center;gap:10px;border-radius:14px;padding:14px 22px;font-weight:850;transition:.25s}.btn-primary{background:linear-gradient(90deg,var(--cyan),var(--purple));color:white;box-shadow:0 12px 35px rgba(0,149,255,.25)}.btn-secondary{border:1px solid rgba(0,234,255,.5);color:var(--cyan);background:rgba(5,18,40,.7)}.btn:hover{transform:translateY(-5px)}.social{width:52px;height:52px;display:grid;place-items:center;border:1px solid rgba(0,234,255,.35);border-radius:14px;background:rgba(6,18,40,.7);font-size:1.15rem;transition:.25s}.social:hover{transform:translateY(-5px);box-shadow:0 0 26px rgba(0,234,255,.28);color:var(--cyan)}
 
-.buttons{display:flex;gap:18px;flex-wrap:wrap}
-.btn{padding:15px 28px;border-radius:14px;font-weight:700;text-decoration:none;transition:.3s}
-.primary{background:#00EAFF;color:black}
-.primary:hover{transform:translateY(-5px);box-shadow:0 0 30px rgba(0,234,255,.5)}
-.secondary{border:2px solid #00EAFF;color:#00EAFF}
-.secondary:hover{background:#00EAFF;color:black}
+    .hero-visual{position:relative;display:flex;align-items:center;justify-content:center;min-height:560px}.photo-wrap{position:relative;width:405px;height:405px;border-radius:50%;display:grid;place-items:center}.photo-wrap::before{content:"";position:absolute;inset:-18px;border-radius:50%;background:conic-gradient(from 0deg,var(--cyan),var(--blue),var(--purple),transparent,var(--cyan));animation:spin 8s linear infinite;filter:drop-shadow(0 0 28px rgba(0,234,255,.4))}.photo-wrap::after{content:"";position:absolute;inset:-42px;border:2px solid rgba(0,234,255,.32);border-radius:50%;box-shadow:0 0 55px rgba(0,132,255,.22);animation:pulse 2.6s ease-in-out infinite}.profile-photo{position:relative;width:385px;height:385px;border-radius:50%;object-fit:cover;object-position:center 28%;border:7px solid #061225;background:#061225;z-index:2}.stat-stack{position:absolute;right:-6px;display:flex;flex-direction:column;gap:16px}.stat-card{width:155px;padding:22px;border-radius:16px;border:1px solid var(--line);background:rgba(8,18,40,.78);backdrop-filter:blur(14px);box-shadow:0 16px 35px rgba(0,0,0,.28)}.stat-card i{font-size:1.25rem;color:var(--cyan);margin-bottom:14px}.stat-card strong{display:block;font-size:2rem;line-height:1}.stat-card span{display:block;color:#c8d6ea;margin-top:6px}
 
-.section{padding:90px 10%}
-.title{text-align:center;font-size:42px;margin-bottom:50px;color:#00EAFF}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:25px}
-.card{background:#0E172A;padding:28px;border-radius:18px;transition:.3s;border:1px solid rgba(255,255,255,.06)}
-.card:hover{transform:translateY(-8px);box-shadow:0 0 25px rgba(0,234,255,.25)}
-.card h3{margin-bottom:12px;color:white}
-.card p,.card li{color:#D5DFEA;line-height:1.7}
-.card ul{padding-left:18px}
+    section{padding:85px 0}.section-title{text-align:center;font-size:clamp(2.2rem,4vw,3.4rem);font-weight:950;margin-bottom:44px;color:var(--cyan);letter-spacing:-.04em}.section-kicker{text-align:center;color:var(--muted);max-width:760px;margin:-28px auto 40px}.glass{border:1px solid var(--line);border-radius:24px;background:rgba(8,20,42,.72);backdrop-filter:blur(16px);box-shadow:0 20px 70px rgba(0,0,0,.22)}
 
-.about-box{max-width:900px;margin:auto;background:#0E172A;padding:35px;border-radius:20px;border:1px solid rgba(255,255,255,.06);line-height:1.8;color:#D5DFEA;font-size:17px}
+    .about-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:26px;padding:32px}.about-text h2{text-align:left;margin-bottom:16px}.about-text p{color:#cbd7e9;margin-bottom:16px}.info-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}.info-card{padding:24px;border-radius:18px;border:1px solid rgba(139,92,246,.28);background:rgba(10,22,46,.72);transition:.25s}.info-card:hover{transform:translateY(-6px);border-color:var(--cyan);box-shadow:0 0 28px rgba(0,234,255,.18)}.info-card i{font-size:1.7rem;color:var(--purple);margin-bottom:10px}.info-card h3{margin-bottom:8px}.info-card p{color:#c7d4e8;font-size:.94rem}
 
-footer{padding:30px;text-align:center;border-top:1px solid rgba(255,255,255,.08);color:#8FA4BE}
+    .skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:18px}.skill-card{min-height:145px;padding:24px;border-radius:18px;border:1px solid rgba(255,255,255,.08);background:rgba(12,25,48,.78);transition:.25s}.skill-card:hover{transform:translateY(-8px);border-color:var(--cyan);box-shadow:0 0 28px rgba(0,234,255,.18)}.skill-card i{font-size:2rem;color:var(--cyan);margin-bottom:14px}.skill-card h3{margin-bottom:8px}.skill-card p{color:#c6d4e8;font-size:.92rem}
 
-@media(max-width:900px){
-.hero{text-align:center}
-.hero-text h1{font-size:45px}
-.hero-image img{width:250px;height:250px}
-nav{padding:18px 6%}
-nav ul{gap:12px;font-size:14px}
-}
-</style>
+    .projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(285px,1fr));gap:22px}.project-card{position:relative;overflow:hidden;border-radius:22px;border:1px solid rgba(70,157,255,.22);background:linear-gradient(180deg,rgba(13,30,61,.9),rgba(7,17,36,.88));transition:.3s}.project-card::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at top right,rgba(0,234,255,.13),transparent 35%);opacity:0;transition:.3s}.project-card:hover{transform:translateY(-9px);border-color:var(--cyan);box-shadow:0 0 34px rgba(0,234,255,.18)}.project-card:hover::before{opacity:1}.project-top{height:118px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,rgba(0,234,255,.12),rgba(139,92,246,.2))}.project-top i{font-size:3.2rem;color:#dfeaff}.project-body{position:relative;padding:24px}.project-body h3{font-size:1.15rem;margin-bottom:12px}.tags{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:14px}.tags span{font-size:.75rem;color:#dcedff;background:rgba(37,139,255,.24);border:1px solid rgba(0,234,255,.18);padding:5px 10px;border-radius:999px}.project-body p{color:#c8d5e8;font-size:.94rem}.project-link{display:inline-block;margin-top:16px;color:var(--cyan);font-weight:800}
+
+    .timeline{display:grid;gap:18px}.timeline-card{padding:26px;border-radius:20px;border:1px solid rgba(255,255,255,.08);background:rgba(12,25,48,.75)}.timeline-head{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;margin-bottom:10px}.timeline-head h3{color:white}.timeline-head span{color:var(--cyan);font-weight:800}.timeline-card p,.timeline-card li{color:#c8d5e8}.timeline-card ul{padding-left:20px;margin-top:10px}
+
+    .education-grid,.contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px}.contact-card{padding:26px;border-radius:20px;border:1px solid var(--line);background:rgba(12,25,48,.75);transition:.25s}.contact-card:hover{transform:translateY(-6px);border-color:var(--cyan)}.contact-card i{font-size:1.8rem;color:var(--cyan);margin-bottom:12px}.contact-card h3{margin-bottom:8px}.contact-card a,.contact-card p{color:#d8e6f7}.contact-card a:hover{color:var(--cyan)}
+
+    footer{text-align:center;padding:34px;color:#9fb1c9;border-top:1px solid rgba(255,255,255,.08)}.top-btn{position:fixed;right:24px;bottom:24px;width:52px;height:52px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,var(--cyan),var(--purple));box-shadow:0 0 28px rgba(0,234,255,.3);z-index:90}.top-btn:hover{transform:translateY(-5px)}
+    @keyframes spin{to{transform:rotate(360deg)}}@keyframes pulse{50%{transform:scale(1.035);opacity:.7}}
+    @media(max-width:980px){.hero-grid,.about-grid{grid-template-columns:1fr;text-align:center}.about-text h2{text-align:center}.hero-visual{min-height:500px;order:-1}.stat-stack{position:static;flex-direction:row;margin-top:28px}.nav-links{display:none}.profile-photo{width:310px;height:310px}.photo-wrap{width:330px;height:330px}}
+    @media(max-width:620px){.hero{padding-top:115px}.hero h1{font-size:2.7rem}.hero-visual{min-height:auto}.stat-stack{flex-direction:column}.photo-wrap{width:285px;height:285px}.profile-photo{width:265px;height:265px}.info-grid{grid-template-columns:1fr}.buttons{justify-content:center}.nav-cta{display:none}}
+  </style>
 </head>
 
 <body>
+  <nav>
+    <div class="container nav-inner">
+      <a class="logo" href="#home"><span class="gradient">Sana Saad</span></a>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <a class="nav-cta" href="tel:+96176385909"><i class="fa-solid fa-phone"></i> Contact Me</a>
+    </div>
+  </nav>
 
-<nav>
-<div class="logo">Sana Saad</div>
-<ul>
-<li><a href="#home">Home</a></li>
-<li><a href="#about">About</a></li>
-<li><a href="#skills">Skills</a></li>
-<li><a href="#projects">Projects</a></li>
-<li><a href="#experience">Experience</a></li>
-<li><a href="#education">Education</a></li>
-<li><a href="#contact">Contact</a></li>
-</ul>
-</nav>
+  <main class="hero" id="home">
+    <div class="container hero-grid">
+      <div class="hero-text">
+        <div class="badge">Mechatronics Engineering Student</div>
+        <h1><span class="gradient">AI · Robotics</span><br>Embedded Systems</h1>
+        <h3>Python • Machine Learning • Computer Vision • Automation</h3>
+        <p>Mechatronics Engineering student at Lebanese American University with hands-on experience in embedded systems, robotics, machine learning, computer vision, control systems, and hardware-software integration.</p>
+        <div class="hero-meta">
+          <span><i class="fa-solid fa-graduation-cap"></i> Lebanese American University</span>
+          <span><i class="fa-solid fa-location-dot"></i> Beirut, Lebanon</span>
+        </div>
+        <div class="buttons">
+          <a class="social" href="https://www.linkedin.com/in/sana-saad-955a58410" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a class="social" href="https://github.com/sanasaad963" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+          <a class="social" href="mailto:sana.saad@lau.edu" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+          <a class="btn btn-primary" href="#projects">View My Work <i class="fa-solid fa-arrow-right"></i></a>
+          <a class="btn btn-secondary" href="tel:+96176385909"><i class="fa-solid fa-phone"></i> Call Me</a>
+        </div>
+      </div>
 
-<section class="hero" id="home">
-<div class="hero-image">
-<img src="sana-photo.png.png" alt="Sana Saad">
-</div>
+      <div class="hero-visual">
+        <div class="photo-wrap">
+          <img class="profile-photo" src="sana-photo.png.png" alt="Sana Saad professional photo" />
+        </div>
+        <div class="stat-stack">
+          <div class="stat-card"><i class="fa-solid fa-diagram-project"></i><strong>11+</strong><span>Engineering Projects</span></div>
+          <div class="stat-card"><i class="fa-solid fa-code"></i><strong>15+</strong><span>Tools & Technologies</span></div>
+          <div class="stat-card"><i class="fa-solid fa-briefcase"></i><strong>2+</strong><span>Years Technical Experience</span></div>
+        </div>
+      </div>
+    </div>
+  </main>
 
-<div class="hero-text">
-<h1>Hello, I'm <span>Sana Saad</span></h1>
-<h3>Mechatronics Engineer • AI • Robotics</h3>
-<p>
-Passionate Mechatronics Engineering student focused on Artificial Intelligence,
-Machine Learning, Deep Learning, Embedded Systems, Automation, Robotics,
-and Intelligent Systems. Actively seeking research opportunities, innovation projects,
-and impactful engineering experiences.
-</p>
+  <section id="about">
+    <div class="container glass about-grid">
+      <div class="about-text">
+        <h2 class="section-title">About Me</h2>
+        <p>I am a Mechatronics Engineering student at LAU, expected to graduate in May 2027. My strongest interests are AI, robotics, embedded systems, automation, computer vision, and intelligent engineering solutions.</p>
+        <p>I enjoy building systems that combine software, hardware, sensors, control logic, and machine learning to solve practical engineering problems.</p>
+        <a class="btn btn-secondary" href="#contact">More About Me <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+      <div class="info-grid">
+        <div class="info-card"><i class="fa-solid fa-graduation-cap"></i><h3>Education</h3><p>B.E. in Mechatronics Engineering, Lebanese American University.</p></div>
+        <div class="info-card"><i class="fa-solid fa-bullseye"></i><h3>Focus Areas</h3><p>AI, Robotics, Embedded Systems, Computer Vision, Control Systems, Automation.</p></div>
+        <div class="info-card"><i class="fa-solid fa-microchip"></i><h3>Hardware + Software</h3><p>Arduino, Raspberry Pi, sensors, Python, C++, MATLAB, LabVIEW, and PLC.</p></div>
+        <div class="info-card"><i class="fa-solid fa-trophy"></i><h3>Achievement</h3><p>Dean’s Distinguished List and active member of IEEE AI Club, Robotics Club, and Women in Engineering.</p></div>
+      </div>
+    </div>
+  </section>
 
-<div class="buttons">
-<a href="tel:+96176385909" class="btn primary">📞 Contact Me</a>
-<a href="https://www.linkedin.com/in/sana-saad-955a58410" target="_blank" class="btn secondary">LinkedIn</a>
-</div>
-</div>
-</section>
+  <section id="skills">
+    <div class="container">
+      <h2 class="section-title">Technical Skills</h2>
+      <p class="section-kicker">A strong mix of software, AI, embedded systems, control, electronics, and mechanical design tools.</p>
+      <div class="skills-grid">
+        <div class="skill-card"><i class="fa-brands fa-python"></i><h3>Python</h3><p>NumPy, SciPy, ML pipelines, automation, robotics control.</p></div>
+        <div class="skill-card"><i class="fa-solid fa-code"></i><h3>C++ / Java / JS</h3><p>Embedded programming, software logic, web development.</p></div>
+        <div class="skill-card"><i class="fa-solid fa-brain"></i><h3>Machine Learning</h3><p>XGBoost, LightGBM, Random Forest, Scikit-learn.</p></div>
+        <div class="skill-card"><i class="fa-solid fa-eye"></i><h3>Computer Vision</h3><p>OpenCV, MediaPipe, YOLO, real-time detection.</p></div>
+        <div class="skill-card"><i class="fa-solid fa-microchip"></i><h3>Embedded Systems</h3><p>Arduino, Raspberry Pi, HCS12, sensors, hardware integration.</p></div>
+        <div class="skill-card"><i class="fa-solid fa-robot"></i><h3>Robotics</h3><p>Navigation, control systems, robotic arm, biped robot.</p></div>
+        <div class="skill-card"><i class="fa-solid fa-chart-line"></i><h3>MATLAB / Simulink</h3><p>Modeling, control design, PID, LQR, system simulation.</p></div>
+        <div class="skill-card"><i class="fa-solid fa-cube"></i><h3>CAD & Design</h3><p>SolidWorks, AutoCAD, Revit, motion and stress analysis.</p></div>
+        <div class="skill-card"><i class="fa-solid fa-industry"></i><h3>Automation</h3><p>PLC, LabVIEW, MyRIO, sensors, safety control systems.</p></div>
+        <div class="skill-card"><i class="fa-solid fa-database"></i><h3>Backend & Data</h3><p>Node.js, Django, MySQL, Docker, data preprocessing.</p></div>
+      </div>
+    </div>
+  </section>
 
-<section class="section" id="about">
-<h2 class="title">About Me</h2>
-<div class="about-box">
-I am a Mechatronics Engineering student with strong interest in AI, robotics, automation,
-embedded systems, and intelligent technologies. I am motivated to learn, contribute to research,
-and develop practical engineering solutions that combine software, hardware, and innovation.
-</div>
-</section>
+  <section id="projects">
+    <div class="container">
+      <h2 class="section-title">Featured Projects</h2>
+      <p class="section-kicker">Selected engineering projects from robotics, AI, embedded systems, computer vision, control, software, electronics, and CAD.</p>
+      <div class="projects-grid">
+        <article class="project-card"><div class="project-top"><i class="fa-solid fa-person-walking"></i></div><div class="project-body"><h3>Biped Robot</h3><div class="tags"><span>Python</span><span>Raspberry Pi</span><span>Fuzzy Logic</span><span>IMU</span></div><p>Designed a biped robot capable of bi-directional walking, impact recovery, sensor feedback, and fuzzy-logic walking strategy selection.</p><span class="project-link">Robotics + Control →</span></div></article>
+        <article class="project-card"><div class="project-top"><i class="fa-solid fa-hand"></i></div><div class="project-body"><h3>Hand Gesture Controlled Robotic System</h3><div class="tags"><span>Python</span><span>OpenCV</span><span>MediaPipe</span><span>Arduino</span></div><p>Built a real-time gesture recognition system for touchless robotic navigation and Arduino-based actuation.</p><span class="project-link">Computer Vision Robotics →</span></div></article>
+        <article class="project-card"><div class="project-top"><i class="fa-solid fa-gears"></i></div><div class="project-body"><h3>Predictive Maintenance System</h3><div class="tags"><span>ML</span><span>Scikit-learn</span><span>Random Forest</span><span>XGBoost</span></div><p>Predicted motor failure using sensor-based operational data including temperature, vibration, and rotational speed.</p><span class="project-link">AI for Engineering →</span></div></article>
+        <article class="project-card"><div class="project-top"><i class="fa-solid fa-video"></i></div><div class="project-body"><h3>Real-Time Object Detection & Tracking</h3><div class="tags"><span>YOLO</span><span>OpenCV</span><span>Deep Learning</span></div><p>Developed a real-time object detection and tracking system for intelligent scene analysis and robotics applications.</p><span class="project-link">Deep Learning Vision →</span></div></article>
+        <article class="project-card"><div class="project-top"><i class="fa-solid fa-house-signal"></i></div><div class="project-body"><h3>Smart Home System</h3><div class="tags"><span>C++</span><span>Arduino Mega</span><span>Sensors</span><span>3D Printing</span></div><p>Implemented RFID access, PIR, flame, DHT11, rain, soil moisture, irrigation, ventilation, and garage automation.</p><span class="project-link">IoT + Embedded Systems →</span></div></article>
+        <article class="project-card"><div class="project-top"><i class="fa-solid fa-building-columns"></i></div><div class="project-body"><h3>Monsef E-Municipality Platform</h3><div class="tags"><span>HTML/CSS</span><span>JavaScript</span><span>Node.js</span><span>Django</span><span>MySQL</span><span>Docker</span></div><p>Built a secure e-governance platform with role-based authentication, real-time request tracking, and AI chatbot support.</p><span class="project-link">Full-Stack Platform →</span></div></article>
+        <article class="project-card"><div class="project-top"><i class="fa-solid fa-chart-simple"></i></div><div class="project-body"><h3>User Behavior Prediction</h3><div class="tags"><span>Python</span><span>Kaggle</span><span>XGBoost</span><span>LightGBM</span></div><p>Predicted food delivery order completion using session-level user data, preprocessing, feature engineering, and model comparison.</p><span class="project-link">Machine Learning →</span></div></article>
+        <article class="project-card"><div class="project-top"><i class="fa-solid fa-arrows-up-down"></i></div><div class="project-body"><h3>3-Stage Elevator System</h3><div class="tags"><span>Assembly</span><span>HCS12</span><span>Interrupts</span><span>PWM</span></div><p>Designed a real-time elevator controller with digital inputs, ATD weight sensing, buzzer control, LEDs, LCD, and safety logic.</p><span class="project-link">Microcontroller System →</span></div></article>
+        <article class="project-card"><div class="project-top"><i class="fa-solid fa-robot"></i></div><div class="project-body"><h3>Robotic Arm Sorting Handler</h3><div class="tags"><span>LabVIEW</span><span>MyRIO</span><span>Computer Vision</span><span>H-Bridge</span></div><p>Developed autonomous color-based robotic sorting using camera feedback, servo/DC motors, ultrasonic sensing, and control logic.</p><span class="project-link">Automation Robotics →</span></div></article>
+        <article class="project-card"><div class="project-top"><i class="fa-solid fa-scale-balanced"></i></div><div class="project-body"><h3>Inverted Pendulum</h3><div class="tags"><span>MATLAB</span><span>Simulink</span><span>PID</span><span>LQR</span></div><p>Derived dynamics, linearized the model, and designed PID/LQR controllers for upright stabilization on QUBE Servo 3 hardware.</p><span class="project-link">Control Systems →</span></div></article>
+        <article class="project-card"><div class="project-top"><i class="fa-solid fa-solar-panel"></i></div><div class="project-body"><h3>Automated Solar Tracking System</h3><div class="tags"><span>Analog Electronics</span><span>Tracking</span><span>Temperature</span></div><p>Designed a dual-axis solar tracking system with real-time temperature monitoring using analog electronics.</p><span class="project-link">Electronics →</span></div></article>
+        <article class="project-card"><div class="project-top"><i class="fa-solid fa-car-side"></i></div><div class="project-body"><h3>V6 Car Engine Design</h3><div class="tags"><span>SolidWorks</span><span>Motion</span><span>Stress Analysis</span></div><p>Designed and assembled a V6 engine model with motion simulation and stress analysis to evaluate displacement, strain, and safety factor.</p><span class="project-link">Mechanical CAD →</span></div></article>
+      </div>
+    </div>
+  </section>
 
-<section class="section" id="skills">
-<h2 class="title">Technical Skills</h2>
-<div class="grid">
-<div class="card"><h3>Python</h3><p>Automation • AI Development • Data Processing</p></div>
-<div class="card"><h3>Machine Learning</h3><p>Model Training • Data Analysis • Prediction</p></div>
-<div class="card"><h3>Deep Learning</h3><p>Computer Vision • Neural Networks</p></div>
-<div class="card"><h3>Embedded Systems</h3><p>Microcontrollers • Sensors • Hardware</p></div>
-<div class="card"><h3>Robotics</h3><p>Automation • Control Systems • Intelligent Systems</p></div>
-<div class="card"><h3>Research</h3><p>Literature Review • Problem Solving • Innovation</p></div>
-</div>
-</section>
+  <section id="experience">
+    <div class="container">
+      <h2 class="section-title">Experience</h2>
+      <div class="timeline">
+        <div class="timeline-card"><div class="timeline-head"><h3>Lab Assistant — Lebanese American University Lab</h3><span>Sept 2025 – Present</span></div><ul><li>Assist in electrical circuit setup, system testing, and troubleshooting.</li><li>Support engineering lab sessions, equipment preparation, inventory, and student troubleshooting.</li><li>Collaborate with faculty and supervisors to ensure safe and smooth lab operations.</li></ul></div>
+        <div class="timeline-card"><div class="timeline-head"><h3>IT Assistant — Lebanese American University Library</h3><span>Sept 2023 – June 2025</span></div><ul><li>Maintained printers and PCs, supporting high uptime for library users.</li><li>Provided daily technical support to students and improved issue-resolution efficiency.</li><li>Managed PC assembly and hardware upgrades across library facilities.</li></ul></div>
+        <div class="timeline-card"><div class="timeline-head"><h3>Technical Operations Volunteer — Ministry of Social Affairs</h3><span>2018 – 2019</span></div><ul><li>Supported electrical installations, sound systems, equipment setup, and troubleshooting during community activities.</li><li>Contributed to logistics, resource management, and multidisciplinary teamwork under tight timelines.</li></ul></div>
+      </div>
+    </div>
+  </section>
 
-<section class="section" id="projects">
-<h2 class="title">Projects</h2>
-<div class="grid">
-<div class="card">
-<h3>AI-Based Object Detection</h3>
-<p>Computer vision project using deep learning concepts to detect and classify objects from images or video.</p>
-</div>
-<div class="card">
-<h3>Smart Automation System</h3>
-<p>Embedded system concept using sensors, microcontrollers, and automation logic for real-world applications.</p>
-</div>
-<div class="card">
-<h3>Machine Learning Prediction Model</h3>
-<p>Python-based ML project focused on data preprocessing, model training, evaluation, and prediction.</p>
-</div>
-</div>
-</section>
+  <section id="education">
+    <div class="container">
+      <h2 class="section-title">Education & Activities</h2>
+      <div class="education-grid">
+        <div class="contact-card"><i class="fa-solid fa-graduation-cap"></i><h3>Lebanese American University</h3><p>Bachelor of Engineering in Mechatronics Engineering<br>Expected Graduation: May 2027</p></div>
+        <div class="contact-card"><i class="fa-solid fa-award"></i><h3>Dean’s Distinguished List</h3><p>Academic excellence recognition.</p></div>
+        <div class="contact-card"><i class="fa-solid fa-users"></i><h3>Leadership & Activities</h3><p>Member of IEEE AI Club, Robotics Club, and Women in Engineering Club.</p></div>
+      </div>
+    </div>
+  </section>
 
-<section class="section" id="experience">
-<h2 class="title">Experience</h2>
-<div class="grid">
-<div class="card">
-<h3>Engineering & AI Research Interest</h3>
-<ul>
-<li>Interested in AI, machine learning, robotics, and intelligent systems research.</li>
-<li>Motivated to assist in literature review, model implementation, and technical experimentation.</li>
-<li>Seeking summer research and internship opportunities.</li>
-</ul>
-</div>
-<div class="card">
-<h3>Technical Development</h3>
-<ul>
-<li>Building skills in Python, automation, embedded systems, and AI applications.</li>
-<li>Interested in combining software and hardware for practical engineering solutions.</li>
-</ul>
-</div>
-</div>
-</section>
+  <section id="contact">
+    <div class="container">
+      <h2 class="section-title">Contact</h2>
+      <div class="contact-grid">
+        <div class="contact-card"><i class="fa-solid fa-envelope"></i><h3>Email</h3><p><a href="mailto:sana.saad@lau.edu">sana.saad@lau.edu</a></p></div>
+        <div class="contact-card"><i class="fa-solid fa-phone"></i><h3>Phone</h3><p><a href="tel:+96176385909">+961 76 385 909</a></p></div>
+        <div class="contact-card"><i class="fa-brands fa-linkedin-in"></i><h3>LinkedIn</h3><p><a href="https://www.linkedin.com/in/sana-saad-955a58410" target="_blank">linkedin.com/in/sana-saad-955a58410</a></p></div>
+        <div class="contact-card"><i class="fa-brands fa-github"></i><h3>GitHub</h3><p><a href="https://github.com/sanasaad963" target="_blank">github.com/sanasaad963</a></p></div>
+      </div>
+    </div>
+  </section>
 
-<section class="section" id="education">
-<h2 class="title">Education</h2>
-<div class="grid">
-<div class="card">
-<h3>Mechatronics Engineering</h3>
-<p>Focused on robotics, automation, embedded systems, control, AI, and intelligent engineering solutions.</p>
-</div>
-</div>
-</section>
-
-<section class="section" id="contact">
-<h2 class="title">Contact</h2>
-<div class="grid">
-<div class="card">
-<h3>Phone</h3>
-<p><a href="tel:+96176385909" style="color:#00EAFF;text-decoration:none;">+961 76 385 909</a></p>
-</div>
-<div class="card">
-<h3>LinkedIn</h3>
-<p><a href="https://www.linkedin.com/in/sana-saad-955a58410" target="_blank" style="color:#00EAFF;text-decoration:none;">Visit my LinkedIn profile</a></p>
-</div>
-</div>
-</section>
-
-<footer>
-© 2026 Sana Saad
-</footer>
-
+  <footer>© 2026 Sana Saad. Designed for AI, Robotics & Embedded Systems opportunities.</footer>
+  <a class="top-btn" href="#home"><i class="fa-solid fa-arrow-up"></i></a>
 </body>
 </html>
