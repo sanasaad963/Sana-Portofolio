@@ -17,7 +17,7 @@
       --cyan:#00eaff;--blue:#258bff;--purple:#8b5cf6;
       --text:#f8fbff;--muted:#b9c7dc;--line:rgba(70,157,255,.25)
     }
-    body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;line-height:1.65}
+    body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;line-height:1.65;cursor:none}
     body::before{content:"";position:fixed;inset:0;background:radial-gradient(circle at 15% 20%,rgba(0,234,255,.18),transparent 32%),radial-gradient(circle at 86% 70%,rgba(139,92,246,.18),transparent 34%),linear-gradient(135deg,#061929 0%,#050816 45%,#120d2b 100%);z-index:-3}
     body::after{content:"";position:fixed;inset:0;background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:42px 42px;z-index:-2;mask-image:linear-gradient(to bottom,black,transparent 88%)}
     a{text-decoration:none;color:inherit}.container{width:min(1180px,92%);margin:auto}.gradient{background:linear-gradient(90deg,var(--cyan),#3b82f6,var(--purple));-webkit-background-clip:text;color:transparent}.highlight{color:var(--cyan)}
@@ -58,10 +58,25 @@
     .counter{display:block;font-size:2rem;line-height:1;font-weight:900}
     .theme-toggle{width:48px;height:48px;border-radius:50%;display:grid;place-items:center;border:1px solid rgba(0,234,255,.45);background:rgba(6,18,40,.7);color:var(--cyan);cursor:pointer;transition:.25s}.theme-toggle:hover{transform:translateY(-4px);box-shadow:0 0 24px rgba(0,234,255,.25)}
     body.light{--bg:#edf5ff;--nav:#ffffff;--card:#ffffff;--card2:#eef6ff;--text:#07111f;--muted:#475569;--line:rgba(37,99,235,.22);background:#edf5ff;color:#07111f}body.light::before{background:linear-gradient(135deg,#e8f7ff,#ffffff,#f2ecff)}body.light nav{background:rgba(255,255,255,.86)}body.light .skill-card,body.light .project-card,body.light .timeline-card,body.light .contact-card,body.light .glass,body.light .stat-card{background:rgba(255,255,255,.82);color:#07111f}body.light p,body.light li,body.light .section-kicker{color:#334155}
+  
+
+    /* Strong interactive layer */
+    #cursorGlow{position:fixed;width:22px;height:22px;border-radius:50%;background:rgba(0,234,255,.85);box-shadow:0 0 28px rgba(0,234,255,.9);pointer-events:none;z-index:9999;mix-blend-mode:screen;transform:translate(-50%,-50%)}
+    #progressBar{position:fixed;top:0;left:0;height:4px;width:0;background:linear-gradient(90deg,var(--cyan),var(--purple));z-index:10000;box-shadow:0 0 20px rgba(0,234,255,.6)}
+    .particles{position:fixed;inset:0;pointer-events:none;z-index:-1}.particle{position:absolute;width:4px;height:4px;border-radius:50%;background:var(--cyan);opacity:.45;animation:floatUp linear infinite}
+    @keyframes floatUp{from{transform:translateY(110vh);opacity:0}20%{opacity:.55}to{transform:translateY(-10vh);opacity:0}}
+    .typing{border-right:3px solid var(--cyan);white-space:nowrap;overflow:hidden;display:inline-block;animation:blink .75s infinite}@keyframes blink{50%{border-color:transparent}}
+    .project-search{display:block;width:min(520px,92%);margin:0 auto 18px;padding:15px 18px;border-radius:16px;border:1px solid rgba(0,234,255,.35);background:rgba(8,20,42,.75);color:var(--text);font-weight:700;outline:none}.project-search:focus{box-shadow:0 0 28px rgba(0,234,255,.22);border-color:var(--cyan)}
+    .modal{position:fixed;inset:0;background:rgba(0,0,0,.72);display:none;align-items:center;justify-content:center;z-index:10001;padding:20px}.modal.show{display:flex}.modal-box{width:min(720px,96%);border:1px solid rgba(0,234,255,.38);background:linear-gradient(180deg,rgba(8,20,42,.96),rgba(5,12,26,.96));border-radius:24px;padding:28px;box-shadow:0 0 60px rgba(0,234,255,.2);position:relative}.modal-close{position:absolute;top:16px;right:18px;background:transparent;color:var(--text);border:0;font-size:1.7rem;cursor:pointer}.modal-title{font-size:1.8rem;margin-bottom:12px;color:var(--cyan)}.modal-tags{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0 18px}.modal-tags span{font-size:.8rem;background:rgba(0,234,255,.15);border:1px solid rgba(0,234,255,.22);padding:6px 10px;border-radius:999px}.modal-text{color:#d5e3f5}.modal-hint{margin-top:18px;color:#93a8c4;font-size:.9rem}
+    .copy-toast{position:fixed;bottom:92px;right:24px;background:rgba(8,20,42,.95);border:1px solid var(--cyan);padding:13px 16px;border-radius:12px;color:var(--cyan);font-weight:800;opacity:0;transform:translateY(15px);transition:.25s;z-index:10002}.copy-toast.show{opacity:1;transform:translateY(0)}
+    .tilt{transform-style:preserve-3d}.tilt:hover .project-top i,.tilt:hover .skill-card i{transform:translateZ(20px)}
   </style>
 </head>
 
 <body>
+  <div id="progressBar"></div>
+  <div id="cursorGlow"></div>
+  <div class="particles" id="particles"></div>
   <nav>
     <div class="container nav-inner">
       <a class="logo" href="#home"><span class="gradient">Sana Saad</span></a>
@@ -83,7 +98,7 @@
       <div class="hero-text">
         <div class="badge">Mechatronics Engineering Student</div>
         <h1><span class="gradient">AI · Robotics</span><br>Embedded Systems</h1>
-        <h3>Python • Machine Learning • Computer Vision • Automation</h3>
+        <h3><span class="typing" id="typingText">Python • Machine Learning • Computer Vision • Automation</span></h3>
         <p>Mechatronics Engineering student at Lebanese American University with a strong applied engineering portfolio spanning robotics, embedded systems, machine learning, computer vision, control systems, automation, and hardware-software integration. I build intelligent systems that connect algorithms with real-world devices.</p>
         <div class="hero-meta">
           <span><i class="fa-solid fa-graduation-cap"></i> Lebanese American University</span>
@@ -152,6 +167,7 @@
     <div class="container">
       <h2 class="section-title">Featured Projects</h2>
       <p class="section-kicker">Selected engineering projects from robotics, AI, embedded systems, computer vision, control, software, electronics, and CAD.</p>
+      <input class="project-search" id="projectSearch" type="text" placeholder="Search projects: robotics, YOLO, Arduino, CAD, Python..." />
       <div class="filter-buttons">
         <button class="filter-btn active" data-filter="all">All</button>
         <button class="filter-btn" data-filter="ai">AI / ML</button>
@@ -161,18 +177,18 @@
         <button class="filter-btn" data-filter="cad">CAD</button>
       </div>
       <div class="projects-grid">
-        <article class="project-card" data-category="robotics control embedded"><div class="project-top"><i class="fa-solid fa-person-walking"></i></div><div class="project-body"><h3>Biped Robot</h3><div class="tags"><span>Python</span><span>Raspberry Pi</span><span>Fuzzy Logic</span><span>IMU</span></div><p>Designed a biped robot capable of bi-directional walking, impact recovery, sensor feedback, and fuzzy-logic walking strategy selection.</p><span class="project-link">Robotics + Control →</span></div></article>
-        <article class="project-card" data-category="robotics ai embedded"><div class="project-top"><i class="fa-solid fa-hand"></i></div><div class="project-body"><h3>Hand Gesture Controlled Robotic System</h3><div class="tags"><span>Python</span><span>OpenCV</span><span>MediaPipe</span><span>Arduino</span></div><p>Built a real-time gesture recognition system for touchless robotic navigation and Arduino-based actuation.</p><span class="project-link">Computer Vision Robotics →</span></div></article>
-        <article class="project-card" data-category="ai"><div class="project-top"><i class="fa-solid fa-gears"></i></div><div class="project-body"><h3>Predictive Maintenance System</h3><div class="tags"><span>ML</span><span>Scikit-learn</span><span>Random Forest</span><span>XGBoost</span></div><p>Predicted motor failure using sensor-based operational data including temperature, vibration, and rotational speed.</p><span class="project-link">AI for Engineering →</span></div></article>
-        <article class="project-card" data-category="ai robotics"><div class="project-top"><i class="fa-solid fa-video"></i></div><div class="project-body"><h3>Real-Time Object Detection & Tracking</h3><div class="tags"><span>YOLO</span><span>OpenCV</span><span>Deep Learning</span></div><p>Developed a real-time object detection and tracking system for intelligent scene analysis and robotics applications.</p><span class="project-link">Deep Learning Vision →</span></div></article>
-        <article class="project-card" data-category="embedded"><div class="project-top"><i class="fa-solid fa-house-signal"></i></div><div class="project-body"><h3>Smart Home System</h3><div class="tags"><span>C++</span><span>Arduino Mega</span><span>Sensors</span><span>3D Printing</span></div><p>Implemented RFID access, PIR, flame, DHT11, rain, soil moisture, irrigation, ventilation, and garage automation.</p><span class="project-link">IoT + Embedded Systems →</span></div></article>
-        <article class="project-card" data-category="ai"><div class="project-top"><i class="fa-solid fa-building-columns"></i></div><div class="project-body"><h3>Monsef E-Municipality Platform</h3><div class="tags"><span>HTML/CSS</span><span>JavaScript</span><span>Node.js</span><span>Django</span><span>MySQL</span><span>Docker</span></div><p>Built a secure e-governance platform with role-based authentication, real-time request tracking, and AI chatbot support.</p><span class="project-link">Full-Stack Platform →</span></div></article>
-        <article class="project-card" data-category="ai"><div class="project-top"><i class="fa-solid fa-chart-simple"></i></div><div class="project-body"><h3>User Behavior Prediction</h3><div class="tags"><span>Python</span><span>Kaggle</span><span>XGBoost</span><span>LightGBM</span></div><p>Predicted food delivery order completion using session-level user data, preprocessing, feature engineering, and model comparison.</p><span class="project-link">Machine Learning →</span></div></article>
-        <article class="project-card" data-category="embedded control"><div class="project-top"><i class="fa-solid fa-arrows-up-down"></i></div><div class="project-body"><h3>3-Stage Elevator System</h3><div class="tags"><span>Assembly</span><span>HCS12</span><span>Interrupts</span><span>PWM</span></div><p>Designed a real-time elevator controller with digital inputs, ATD weight sensing, buzzer control, LEDs, LCD, and safety logic.</p><span class="project-link">Microcontroller System →</span></div></article>
-        <article class="project-card" data-category="robotics embedded"><div class="project-top"><i class="fa-solid fa-robot"></i></div><div class="project-body"><h3>Robotic Arm Sorting Handler</h3><div class="tags"><span>LabVIEW</span><span>MyRIO</span><span>Computer Vision</span><span>H-Bridge</span></div><p>Developed autonomous color-based robotic sorting using camera feedback, servo/DC motors, ultrasonic sensing, and control logic.</p><span class="project-link">Automation Robotics →</span></div></article>
-        <article class="project-card" data-category="control"><div class="project-top"><i class="fa-solid fa-scale-balanced"></i></div><div class="project-body"><h3>Inverted Pendulum</h3><div class="tags"><span>MATLAB</span><span>Simulink</span><span>PID</span><span>LQR</span></div><p>Derived dynamics, linearized the model, and designed PID/LQR controllers for upright stabilization on QUBE Servo 3 hardware.</p><span class="project-link">Control Systems →</span></div></article>
-        <article class="project-card" data-category="embedded"><div class="project-top"><i class="fa-solid fa-solar-panel"></i></div><div class="project-body"><h3>Automated Solar Tracking System</h3><div class="tags"><span>Analog Electronics</span><span>Tracking</span><span>Temperature</span></div><p>Designed a dual-axis solar tracking system with real-time temperature monitoring using analog electronics.</p><span class="project-link">Electronics →</span></div></article>
-        <article class="project-card" data-category="cad"><div class="project-top"><i class="fa-solid fa-car-side"></i></div><div class="project-body"><h3>V6 Car Engine Design</h3><div class="tags"><span>SolidWorks</span><span>Motion</span><span>Stress Analysis</span></div><p>Designed and assembled a V6 engine model with motion simulation and stress analysis to evaluate displacement, strain, and safety factor.</p><span class="project-link">Mechanical CAD →</span></div></article>
+        <article class="project-card tilt" data-category="robotics control embedded"><div class="project-top"><i class="fa-solid fa-person-walking"></i></div><div class="project-body"><h3>Biped Robot</h3><div class="tags"><span>Python</span><span>Raspberry Pi</span><span>Fuzzy Logic</span><span>IMU</span></div><p>Designed a biped robot capable of bi-directional walking, impact recovery, sensor feedback, and fuzzy-logic walking strategy selection.</p><span class="project-link">Robotics + Control →</span></div></article>
+        <article class="project-card tilt" data-category="robotics ai embedded"><div class="project-top"><i class="fa-solid fa-hand"></i></div><div class="project-body"><h3>Hand Gesture Controlled Robotic System</h3><div class="tags"><span>Python</span><span>OpenCV</span><span>MediaPipe</span><span>Arduino</span></div><p>Built a real-time gesture recognition system for touchless robotic navigation and Arduino-based actuation.</p><span class="project-link">Computer Vision Robotics →</span></div></article>
+        <article class="project-card tilt" data-category="ai"><div class="project-top"><i class="fa-solid fa-gears"></i></div><div class="project-body"><h3>Predictive Maintenance System</h3><div class="tags"><span>ML</span><span>Scikit-learn</span><span>Random Forest</span><span>XGBoost</span></div><p>Predicted motor failure using sensor-based operational data including temperature, vibration, and rotational speed.</p><span class="project-link">AI for Engineering →</span></div></article>
+        <article class="project-card tilt" data-category="ai robotics"><div class="project-top"><i class="fa-solid fa-video"></i></div><div class="project-body"><h3>Real-Time Object Detection & Tracking</h3><div class="tags"><span>YOLO</span><span>OpenCV</span><span>Deep Learning</span></div><p>Developed a real-time object detection and tracking system for intelligent scene analysis and robotics applications.</p><span class="project-link">Deep Learning Vision →</span></div></article>
+        <article class="project-card tilt" data-category="embedded"><div class="project-top"><i class="fa-solid fa-house-signal"></i></div><div class="project-body"><h3>Smart Home System</h3><div class="tags"><span>C++</span><span>Arduino Mega</span><span>Sensors</span><span>3D Printing</span></div><p>Implemented RFID access, PIR, flame, DHT11, rain, soil moisture, irrigation, ventilation, and garage automation.</p><span class="project-link">IoT + Embedded Systems →</span></div></article>
+        <article class="project-card tilt" data-category="ai"><div class="project-top"><i class="fa-solid fa-building-columns"></i></div><div class="project-body"><h3>Monsef E-Municipality Platform</h3><div class="tags"><span>HTML/CSS</span><span>JavaScript</span><span>Node.js</span><span>Django</span><span>MySQL</span><span>Docker</span></div><p>Built a secure e-governance platform with role-based authentication, real-time request tracking, and AI chatbot support.</p><span class="project-link">Full-Stack Platform →</span></div></article>
+        <article class="project-card tilt" data-category="ai"><div class="project-top"><i class="fa-solid fa-chart-simple"></i></div><div class="project-body"><h3>User Behavior Prediction</h3><div class="tags"><span>Python</span><span>Kaggle</span><span>XGBoost</span><span>LightGBM</span></div><p>Predicted food delivery order completion using session-level user data, preprocessing, feature engineering, and model comparison.</p><span class="project-link">Machine Learning →</span></div></article>
+        <article class="project-card tilt" data-category="embedded control"><div class="project-top"><i class="fa-solid fa-arrows-up-down"></i></div><div class="project-body"><h3>3-Stage Elevator System</h3><div class="tags"><span>Assembly</span><span>HCS12</span><span>Interrupts</span><span>PWM</span></div><p>Designed a real-time elevator controller with digital inputs, ATD weight sensing, buzzer control, LEDs, LCD, and safety logic.</p><span class="project-link">Microcontroller System →</span></div></article>
+        <article class="project-card tilt" data-category="robotics embedded"><div class="project-top"><i class="fa-solid fa-robot"></i></div><div class="project-body"><h3>Robotic Arm Sorting Handler</h3><div class="tags"><span>LabVIEW</span><span>MyRIO</span><span>Computer Vision</span><span>H-Bridge</span></div><p>Developed autonomous color-based robotic sorting using camera feedback, servo/DC motors, ultrasonic sensing, and control logic.</p><span class="project-link">Automation Robotics →</span></div></article>
+        <article class="project-card tilt" data-category="control"><div class="project-top"><i class="fa-solid fa-scale-balanced"></i></div><div class="project-body"><h3>Inverted Pendulum</h3><div class="tags"><span>MATLAB</span><span>Simulink</span><span>PID</span><span>LQR</span></div><p>Derived dynamics, linearized the model, and designed PID/LQR controllers for upright stabilization on QUBE Servo 3 hardware.</p><span class="project-link">Control Systems →</span></div></article>
+        <article class="project-card tilt" data-category="embedded"><div class="project-top"><i class="fa-solid fa-solar-panel"></i></div><div class="project-body"><h3>Automated Solar Tracking System</h3><div class="tags"><span>Analog Electronics</span><span>Tracking</span><span>Temperature</span></div><p>Designed a dual-axis solar tracking system with real-time temperature monitoring using analog electronics.</p><span class="project-link">Electronics →</span></div></article>
+        <article class="project-card tilt" data-category="cad"><div class="project-top"><i class="fa-solid fa-car-side"></i></div><div class="project-body"><h3>V6 Car Engine Design</h3><div class="tags"><span>SolidWorks</span><span>Motion</span><span>Stress Analysis</span></div><p>Designed and assembled a V6 engine model with motion simulation and stress analysis to evaluate displacement, strain, and safety factor.</p><span class="project-link">Mechanical CAD →</span></div></article>
       </div>
     </div>
   </section>
@@ -203,8 +219,8 @@
     <div class="container">
       <h2 class="section-title">Contact</h2>
       <div class="contact-grid">
-        <div class="contact-card"><i class="fa-solid fa-envelope"></i><h3>Email</h3><p><a href="mailto:sana.saad@lau.edu">sana.saad@lau.edu</a></p></div>
-        <div class="contact-card"><i class="fa-solid fa-phone"></i><h3>Phone</h3><p><a href="tel:+96176385909">+961 76 385 909</a></p></div>
+        <div class="contact-card copy-card" data-copy="sana.saad@lau.edu"><i class="fa-solid fa-envelope"></i><h3>Email</h3><p><a href="mailto:sana.saad@lau.edu">sana.saad@lau.edu</a></p><small>Click card to copy</small></div>
+        <div class="contact-card copy-card" data-copy="+961 76 385 909"><i class="fa-solid fa-phone"></i><h3>Phone</h3><p><a href="tel:+96176385909">+961 76 385 909</a></p><small>Click card to copy</small></div>
         <div class="contact-card"><i class="fa-brands fa-linkedin-in"></i><h3>LinkedIn</h3><p><a href="https://www.linkedin.com/in/sana-saad-955a58410" target="_blank">linkedin.com/in/sana-saad-955a58410</a></p></div>
         <div class="contact-card"><i class="fa-brands fa-github"></i><h3>GitHub</h3><p><a href="https://github.com/sanasaad963" target="_blank">github.com/sanasaad963</a></p></div>
       </div>
@@ -212,26 +228,53 @@
   </section>
 
   <footer>© 2026 Sana Saad. Designed for AI, Robotics & Embedded Systems opportunities.</footer>
+  <div class="modal" id="projectModal">
+    <div class="modal-box">
+      <button class="modal-close" id="modalClose">×</button>
+      <h3 class="modal-title" id="modalTitle"></h3>
+      <div class="modal-tags" id="modalTags"></div>
+      <p class="modal-text" id="modalText"></p>
+      <p class="modal-hint">Interactive note: this project is part of Sana's applied engineering portfolio combining hardware, software, and intelligent systems.</p>
+    </div>
+  </div>
+  <div class="copy-toast" id="copyToast">Copied!</div>
   <a class="top-btn" href="#home"><i class="fa-solid fa-arrow-up"></i></a>
 
   <script>
     const sections = document.querySelectorAll('section[id], main[id]');
     const navLinks = document.querySelectorAll('.nav-links a');
+    const progressBar = document.getElementById('progressBar');
+    const cursorGlow = document.getElementById('cursorGlow');
+
     window.addEventListener('scroll', () => {
       let current = 'home';
       sections.forEach(section => {
-        const top = section.offsetTop - 120;
+        const top = section.offsetTop - 130;
         if (scrollY >= top) current = section.id;
       });
-      navLinks.forEach(link => {
-        link.classList.toggle('active', link.getAttribute('href') === '#' + current);
-      });
+      navLinks.forEach(link => link.classList.toggle('active', link.getAttribute('href') === '#' + current));
+      const pageHeight = document.documentElement.scrollHeight - innerHeight;
+      progressBar.style.width = `${(scrollY / pageHeight) * 100}%`;
     });
 
+    document.addEventListener('mousemove', e => {
+      cursorGlow.style.left = e.clientX + 'px';
+      cursorGlow.style.top = e.clientY + 'px';
+    });
+
+    const particles = document.getElementById('particles');
+    for(let i=0;i<42;i++){
+      const p=document.createElement('span');
+      p.className='particle';
+      p.style.left=Math.random()*100+'%';
+      p.style.animationDuration=(7+Math.random()*10)+'s';
+      p.style.animationDelay=(Math.random()*8)+'s';
+      p.style.opacity=.18+Math.random()*.42;
+      particles.appendChild(p);
+    }
+
     const revealObserver = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add('show');
-      });
+      entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('show'); });
     }, { threshold: 0.12 });
     document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
@@ -242,12 +285,12 @@
         const counter = entry.target;
         const target = Number(counter.dataset.target);
         let current = 0;
-        const step = Math.max(1, Math.ceil(target / 40));
+        const step = Math.max(1, Math.ceil(target / 45));
         const timer = setInterval(() => {
           current += step;
           if (current >= target) { current = target; clearInterval(timer); }
           counter.textContent = current;
-        }, 35);
+        }, 30);
         counterObserver.unobserve(counter);
       });
     }, { threshold: .8 });
@@ -255,30 +298,92 @@
 
     const filterButtons = document.querySelectorAll('.filter-btn');
     const projectCards = document.querySelectorAll('.project-card');
+    const projectSearch = document.getElementById('projectSearch');
+    let activeFilter = 'all';
+
+    function filterProjects(){
+      const query = projectSearch.value.toLowerCase();
+      projectCards.forEach(card => {
+        const categories = card.dataset.category || '';
+        const text = card.innerText.toLowerCase();
+        const matchFilter = activeFilter === 'all' || categories.includes(activeFilter);
+        const matchSearch = text.includes(query);
+        card.classList.toggle('hide', !(matchFilter && matchSearch));
+      });
+    }
+
     filterButtons.forEach(button => {
       button.addEventListener('click', () => {
         filterButtons.forEach(btn => btn.classList.remove('active'));
         button.classList.add('active');
-        const filter = button.dataset.filter;
-        projectCards.forEach(card => {
-          const categories = card.dataset.category || '';
-          card.classList.toggle('hide', filter !== 'all' && !categories.includes(filter));
-        });
+        activeFilter = button.dataset.filter;
+        filterProjects();
       });
     });
+    projectSearch.addEventListener('input', filterProjects);
+
+    const modal = document.getElementById('projectModal');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalTags = document.getElementById('modalTags');
+    const modalText = document.getElementById('modalText');
+    const modalClose = document.getElementById('modalClose');
 
     projectCards.forEach(card => {
+      card.addEventListener('mousemove', e => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const rotateY = ((x / rect.width) - .5) * 10;
+        const rotateX = ((y / rect.height) - .5) * -10;
+        card.style.transform = `perspective(900px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-9px)`;
+      });
+      card.addEventListener('mouseleave', () => { card.style.transform = ''; });
       card.addEventListener('click', () => {
-        projectCards.forEach(c => c.classList.remove('expanded'));
-        card.classList.add('expanded');
+        const title = card.querySelector('h3').innerText;
+        const text = card.querySelector('p').innerText;
+        const tags = [...card.querySelectorAll('.tags span')].map(t => t.innerText);
+        modalTitle.innerText = title;
+        modalText.innerText = text;
+        modalTags.innerHTML = tags.map(tag => `<span>${tag}</span>`).join('');
+        modal.classList.add('show');
       });
     });
+    modalClose.addEventListener('click', () => modal.classList.remove('show'));
+    modal.addEventListener('click', e => { if(e.target === modal) modal.classList.remove('show'); });
 
     const themeToggle = document.getElementById('themeToggle');
     themeToggle.addEventListener('click', () => {
       document.body.classList.toggle('light');
       const icon = themeToggle.querySelector('i');
       icon.className = document.body.classList.contains('light') ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
+    });
+
+    const phrases = [
+      'Python • Machine Learning • Computer Vision • Automation',
+      'Robotics • Embedded Systems • Control Systems',
+      'Arduino • Raspberry Pi • Sensors • AI',
+      'YOLO • OpenCV • MATLAB • SolidWorks'
+    ];
+    const typingText = document.getElementById('typingText');
+    let phraseIndex = 0, charIndex = 0, deleting = false;
+    function typeLoop(){
+      const phrase = phrases[phraseIndex];
+      typingText.textContent = phrase.slice(0, charIndex);
+      if(!deleting && charIndex < phrase.length){ charIndex++; setTimeout(typeLoop, 60); }
+      else if(!deleting && charIndex === phrase.length){ deleting = true; setTimeout(typeLoop, 1300); }
+      else if(deleting && charIndex > 0){ charIndex--; setTimeout(typeLoop, 28); }
+      else{ deleting = false; phraseIndex = (phraseIndex + 1) % phrases.length; setTimeout(typeLoop, 280); }
+    }
+    typeLoop();
+
+    const copyToast = document.getElementById('copyToast');
+    document.querySelectorAll('.copy-card').forEach(card => {
+      card.addEventListener('click', () => {
+        navigator.clipboard.writeText(card.dataset.copy);
+        copyToast.textContent = 'Copied: ' + card.dataset.copy;
+        copyToast.classList.add('show');
+        setTimeout(() => copyToast.classList.remove('show'), 1600);
+      });
     });
   </script>
 </body>
