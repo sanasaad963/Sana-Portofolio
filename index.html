@@ -1,608 +1,186 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Sana Saad | AI & Robotics Portfolio</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-scroll-behavior:smooth;
-}
-
-body{
-
-font-family:'Inter',sans-serif;
-background:#050816;
-color:white;
-overflow-x:hidden;
-
-}
-
-body::before{
-
-content:'';
-position:fixed;
-width:100%;
-height:100%;
-
-background:
-
-radial-gradient(circle at 15% 20%,
-rgba(0,234,255,.18),
-transparent 35%),
-
-radial-gradient(circle at 85% 75%,
-rgba(140,82,255,.15),
-transparent 35%);
-
-z-index:-1;
-
-}
-
-nav{
-
-position:fixed;
-
-top:0;
-width:100%;
-
-padding:22px 9%;
-
-display:flex;
-
-justify-content:space-between;
-
-align-items:center;
-
-background:rgba(5,8,22,.85);
-
-backdrop-filter:blur(15px);
-
-border-bottom:
-
-1px solid rgba(255,255,255,.08);
-
-z-index:999;
-
-}
-
-.logo{
-
-font-size:30px;
-
-font-weight:800;
-
-background:
-
-linear-gradient(
-90deg,
-#00EAFF,
-#8B5CF6
-);
-
--webkit-background-clip:text;
-
-color:transparent;
-
-}
-
-nav ul{
-
-display:flex;
-gap:25px;
-
-list-style:none;
-
-}
-
-nav a{
-
-color:white;
-
-text-decoration:none;
-
-font-weight:600;
-
-transition:.3s;
-
-}
-
-nav a:hover{
-
-color:#00EAFF;
-
-}
-
-.hero{
-
-min-height:100vh;
-
-display:flex;
-
-align-items:center;
-
-justify-content:center;
-
-padding:130px 10%;
-
-gap:70px;
-
-flex-wrap:wrap;
-
-}
-
-.hero-image img{
-
-width:320px;
-
-height:320px;
-
-border-radius:50%;
-
-object-fit:cover;
-
-border:5px solid #00EAFF;
-
-box-shadow:
-
-0 0 45px rgba(0,234,255,.45);
-
-transition:.4s;
-
-}
-
-.hero-image img:hover{
-
-transform:scale(1.04);
-
-}
-
-.hero-text{
-
-max-width:650px;
-
-}
-
-.hero-text h1{
-
-font-size:60px;
-
-margin-bottom:10px;
-
-}
-
-.hero-text span{
-
-color:#00EAFF;
-
-}
-
-.hero-text h3{
-
-font-size:25px;
-
-color:#B7C3D3;
-
-margin-bottom:20px;
-
-}
-
-.hero-text p{
-
-line-height:1.8;
-
-font-size:17px;
-
-color:#D5DFEA;
-
-margin-bottom:35px;
-
-}
-
-.buttons{
-
-display:flex;
-
-gap:18px;
-
-flex-wrap:wrap;
-
-}
-
-.btn{
-
-padding:15px 28px;
-
-border-radius:14px;
-
-font-weight:700;
-
-text-decoration:none;
-
-transition:.3s;
-
-}
-
-.primary{
-
-background:#00EAFF;
-
-color:black;
-
-}
-
-.primary:hover{
-
-transform:translateY(-5px);
-
-box-shadow:
-
-0 0 30px rgba(0,234,255,.5);
-
-}
-
-.secondary{
-
-border:2px solid #00EAFF;
-
-color:#00EAFF;
-
-}
-
-.secondary:hover{
-
-background:#00EAFF;
-
-color:black;
-
-}
-
-.section{
-
-padding:90px 10%;
-
-}
-
-.title{
-
-text-align:center;
-
-font-size:42px;
-
-margin-bottom:50px;
-
-color:#00EAFF;
-
-}
-
-.grid{
-
-display:grid;
-
-grid-template-columns:
-
-repeat(auto-fit,minmax(220px,1fr));
-
-gap:25px;
-
-}
-
-.card{
-
-background:#0E172A;
-
-padding:28px;
-
-border-radius:18px;
-
-transition:.3s;
-
-border:
-
-1px solid rgba(255,255,255,.06);
-
-}
-
-.card:hover{
-
-transform:translateY(-8px);
-
-box-shadow:
-
-0 0 25px rgba(0,234,255,.25);
-
-}
-
-.card h3{
-
-margin-bottom:10px;
-
-}
-
-footer{
-
-padding:30px;
-
-text-align:center;
-
-border-top:
-
-1px solid rgba(255,255,255,.08);
-
-color:#8FA4BE;
-
-}
+*{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:#050816;color:white;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;background:radial-gradient(circle at 15% 20%,rgba(0,234,255,.18),transparent 35%),radial-gradient(circle at 85% 75%,rgba(140,82,255,.15),transparent 35%);z-index:-1}
+
+nav{position:fixed;top:0;width:100%;padding:22px 9%;display:flex;justify-content:space-between;align-items:center;background:rgba(5,8,22,.88);backdrop-filter:blur(15px);border-bottom:1px solid rgba(255,255,255,.08);z-index:999}
+.logo{font-size:30px;font-weight:800;background:linear-gradient(90deg,#00EAFF,#8B5CF6);-webkit-background-clip:text;color:transparent}
+nav ul{display:flex;gap:22px;list-style:none;flex-wrap:wrap}
+nav a{color:white;text-decoration:none;font-weight:600;transition:.3s}
+nav a:hover{color:#00EAFF}
+
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:130px 10%;gap:70px;flex-wrap:wrap}
+.hero-image img{width:320px;height:320px;border-radius:50%;object-fit:cover;border:5px solid #00EAFF;box-shadow:0 0 45px rgba(0,234,255,.45);transition:.4s}
+.hero-image img:hover{transform:scale(1.04)}
+.hero-text{max-width:650px}
+.hero-text h1{font-size:60px;margin-bottom:10px}
+.hero-text span{color:#00EAFF}
+.hero-text h3{font-size:25px;color:#B7C3D3;margin-bottom:20px}
+.hero-text p{line-height:1.8;font-size:17px;color:#D5DFEA;margin-bottom:35px}
+
+.buttons{display:flex;gap:18px;flex-wrap:wrap}
+.btn{padding:15px 28px;border-radius:14px;font-weight:700;text-decoration:none;transition:.3s}
+.primary{background:#00EAFF;color:black}
+.primary:hover{transform:translateY(-5px);box-shadow:0 0 30px rgba(0,234,255,.5)}
+.secondary{border:2px solid #00EAFF;color:#00EAFF}
+.secondary:hover{background:#00EAFF;color:black}
+
+.section{padding:90px 10%}
+.title{text-align:center;font-size:42px;margin-bottom:50px;color:#00EAFF}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:25px}
+.card{background:#0E172A;padding:28px;border-radius:18px;transition:.3s;border:1px solid rgba(255,255,255,.06)}
+.card:hover{transform:translateY(-8px);box-shadow:0 0 25px rgba(0,234,255,.25)}
+.card h3{margin-bottom:12px;color:white}
+.card p,.card li{color:#D5DFEA;line-height:1.7}
+.card ul{padding-left:18px}
+
+.about-box{max-width:900px;margin:auto;background:#0E172A;padding:35px;border-radius:20px;border:1px solid rgba(255,255,255,.06);line-height:1.8;color:#D5DFEA;font-size:17px}
+
+footer{padding:30px;text-align:center;border-top:1px solid rgba(255,255,255,.08);color:#8FA4BE}
 
 @media(max-width:900px){
-
-.hero{
-
-text-align:center;
-
+.hero{text-align:center}
+.hero-text h1{font-size:45px}
+.hero-image img{width:250px;height:250px}
+nav{padding:18px 6%}
+nav ul{gap:12px;font-size:14px}
 }
-
-.hero-text h1{
-
-font-size:45px;
-
-}
-
-.hero-image img{
-
-width:250px;
-
-height:250px;
-
-}
-
-}
-
 </style>
-
 </head>
 
 <body>
 
 <nav>
-
-<div class="logo">
-
-Sana Saad
-
-</div>
-
+<div class="logo">Sana Saad</div>
 <ul>
-
-<li>
-
-<a href="#">
-
-Home
-
-</a>
-
-</li>
-
-<li>
-
-<a href="#skills">
-
-Skills
-
-</a>
-
-</li>
-
+<li><a href="#home">Home</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#skills">Skills</a></li>
+<li><a href="#projects">Projects</a></li>
+<li><a href="#experience">Experience</a></li>
+<li><a href="#education">Education</a></li>
+<li><a href="#contact">Contact</a></li>
 </ul>
-
 </nav>
 
-<section class="hero">
-
+<section class="hero" id="home">
 <div class="hero-image">
-
-<img
-src="sana-photo.png.png"
-alt="Sana Saad">
-
+<img src="sana-photo.png.png" alt="Sana Saad">
 </div>
 
 <div class="hero-text">
-
-<h1>
-
-Hello, I'm
-
-<span>
-
-Sana Saad
-
-</span>
-
-</h1>
-
-<h3>
-
-Mechatronics Engineer • AI • Robotics
-
-</h3>
-
+<h1>Hello, I'm <span>Sana Saad</span></h1>
+<h3>Mechatronics Engineer • AI • Robotics</h3>
 <p>
-
 Passionate Mechatronics Engineering student focused on Artificial Intelligence,
-Machine Learning,
-Deep Learning,
-Embedded Systems,
-Automation,
-Robotics,
-and Intelligent Systems.
-
-Actively seeking research opportunities,
-innovation projects,
+Machine Learning, Deep Learning, Embedded Systems, Automation, Robotics,
+and Intelligent Systems. Actively seeking research opportunities, innovation projects,
 and impactful engineering experiences.
-
 </p>
 
 <div class="buttons">
-
-<a
-
-href="tel:+96176385909"
-
-class="btn primary">
-
-📞 Contact Me
-
-</a>
-
-<a
-
-href="https://www.linkedin.com/in/sana-saad-955a58410"
-
-target="_blank"
-
-class="btn secondary">
-
-LinkedIn
-
-</a>
-
+<a href="tel:+96176385909" class="btn primary">📞 Contact Me</a>
+<a href="https://www.linkedin.com/in/sana-saad-955a58410" target="_blank" class="btn secondary">LinkedIn</a>
 </div>
-
 </div>
-
 </section>
 
-<section
-id="skills"
-class="section">
+<section class="section" id="about">
+<h2 class="title">About Me</h2>
+<div class="about-box">
+I am a Mechatronics Engineering student with strong interest in AI, robotics, automation,
+embedded systems, and intelligent technologies. I am motivated to learn, contribute to research,
+and develop practical engineering solutions that combine software, hardware, and innovation.
+</div>
+</section>
 
-<h2 class="title">
-
-Technical Skills
-
-</h2>
-
+<section class="section" id="skills">
+<h2 class="title">Technical Skills</h2>
 <div class="grid">
+<div class="card"><h3>Python</h3><p>Automation • AI Development • Data Processing</p></div>
+<div class="card"><h3>Machine Learning</h3><p>Model Training • Data Analysis • Prediction</p></div>
+<div class="card"><h3>Deep Learning</h3><p>Computer Vision • Neural Networks</p></div>
+<div class="card"><h3>Embedded Systems</h3><p>Microcontrollers • Sensors • Hardware</p></div>
+<div class="card"><h3>Robotics</h3><p>Automation • Control Systems • Intelligent Systems</p></div>
+<div class="card"><h3>Research</h3><p>Literature Review • Problem Solving • Innovation</p></div>
+</div>
+</section>
 
+<section class="section" id="projects">
+<h2 class="title">Projects</h2>
+<div class="grid">
 <div class="card">
-
-<h3>
-
-Python
-
-</h3>
-
-<p>
-
-Automation • AI Development
-
-</p>
-
+<h3>AI-Based Object Detection</h3>
+<p>Computer vision project using deep learning concepts to detect and classify objects from images or video.</p>
 </div>
-
 <div class="card">
-
-<h3>
-
-Machine Learning
-
-</h3>
-
-<p>
-
-Training Models • Data Analysis
-
-</p>
-
+<h3>Smart Automation System</h3>
+<p>Embedded system concept using sensors, microcontrollers, and automation logic for real-world applications.</p>
 </div>
-
 <div class="card">
-
-<h3>
-
-Deep Learning
-
-</h3>
-
-<p>
-
-Computer Vision • Neural Networks
-
-</p>
-
+<h3>Machine Learning Prediction Model</h3>
+<p>Python-based ML project focused on data preprocessing, model training, evaluation, and prediction.</p>
 </div>
+</div>
+</section>
 
+<section class="section" id="experience">
+<h2 class="title">Experience</h2>
+<div class="grid">
 <div class="card">
-
-<h3>
-
-Embedded Systems
-
-</h3>
-
-<p>
-
-Microcontrollers • Hardware
-
-</p>
-
+<h3>Engineering & AI Research Interest</h3>
+<ul>
+<li>Interested in AI, machine learning, robotics, and intelligent systems research.</li>
+<li>Motivated to assist in literature review, model implementation, and technical experimentation.</li>
+<li>Seeking summer research and internship opportunities.</li>
+</ul>
 </div>
-
 <div class="card">
-
-<h3>
-
-Robotics
-
-</h3>
-
-<p>
-
-Automation • Intelligent Systems
-
-</p>
-
+<h3>Technical Development</h3>
+<ul>
+<li>Building skills in Python, automation, embedded systems, and AI applications.</li>
+<li>Interested in combining software and hardware for practical engineering solutions.</li>
+</ul>
 </div>
+</div>
+</section>
 
+<section class="section" id="education">
+<h2 class="title">Education</h2>
+<div class="grid">
 <div class="card">
-
-<h3>
-
-Research
-
-</h3>
-
-<p>
-
-Problem Solving • Innovation
-
-</p>
-
+<h3>Mechatronics Engineering</h3>
+<p>Focused on robotics, automation, embedded systems, control, AI, and intelligent engineering solutions.</p>
 </div>
-
 </div>
+</section>
 
+<section class="section" id="contact">
+<h2 class="title">Contact</h2>
+<div class="grid">
+<div class="card">
+<h3>Phone</h3>
+<p><a href="tel:+96176385909" style="color:#00EAFF;text-decoration:none;">+961 76 385 909</a></p>
+</div>
+<div class="card">
+<h3>LinkedIn</h3>
+<p><a href="https://www.linkedin.com/in/sana-saad-955a58410" target="_blank" style="color:#00EAFF;text-decoration:none;">Visit my LinkedIn profile</a></p>
+</div>
+</div>
 </section>
 
 <footer>
-
 © 2026 Sana Saad
-
 </footer>
 
 </body>
-
 </html>
