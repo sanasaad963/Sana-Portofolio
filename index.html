@@ -24,31 +24,27 @@ scroll-behavior:smooth;
 body{
 
 font-family:'Inter',sans-serif;
-
-background:#030816;
-
-color:#f8fbff;
-
+background:#050816;
+color:white;
 overflow-x:hidden;
 
 }
 
 body::before{
 
-content:"";
-
+content:'';
 position:fixed;
-
-inset:0;
+width:100%;
+height:100%;
 
 background:
 
-radial-gradient(circle at 20% 20%,
-rgba(0,255,255,.15),
+radial-gradient(circle at 15% 20%,
+rgba(0,234,255,.18),
 transparent 35%),
 
-radial-gradient(circle at 80% 70%,
-rgba(130,90,255,.15),
+radial-gradient(circle at 85% 75%,
+rgba(140,82,255,.15),
 transparent 35%);
 
 z-index:-1;
@@ -60,14 +56,9 @@ nav{
 position:fixed;
 
 top:0;
-
 width:100%;
 
 padding:22px 9%;
-
-background:rgba(3,8,22,.85);
-
-backdrop-filter:blur(12px);
 
 display:flex;
 
@@ -75,7 +66,13 @@ justify-content:space-between;
 
 align-items:center;
 
-border-bottom:1px solid rgba(255,255,255,.08);
+background:rgba(5,8,22,.85);
+
+backdrop-filter:blur(15px);
+
+border-bottom:
+
+1px solid rgba(255,255,255,.08);
 
 z-index:999;
 
@@ -87,7 +84,13 @@ font-size:30px;
 
 font-weight:800;
 
-background:linear-gradient(90deg,#00EAFF,#8B5CF6);
+background:
+
+linear-gradient(
+90deg,
+#00EAFF,
+#8B5CF6
+);
 
 -webkit-background-clip:text;
 
@@ -98,20 +101,19 @@ color:transparent;
 nav ul{
 
 display:flex;
+gap:25px;
 
 list-style:none;
-
-gap:25px;
 
 }
 
 nav a{
 
-text-decoration:none;
-
 color:white;
 
-font-weight:500;
+text-decoration:none;
+
+font-weight:600;
 
 transition:.3s;
 
@@ -133,9 +135,9 @@ align-items:center;
 
 justify-content:center;
 
-padding:140px 10% 80px;
+padding:130px 10%;
 
-gap:80px;
+gap:70px;
 
 flex-wrap:wrap;
 
@@ -155,7 +157,7 @@ border:5px solid #00EAFF;
 
 box-shadow:
 
-0 0 40px rgba(0,234,255,.45);
+0 0 45px rgba(0,234,255,.45);
 
 transition:.4s;
 
@@ -163,7 +165,7 @@ transition:.4s;
 
 .hero-image img:hover{
 
-transform:scale(1.05);
+transform:scale(1.04);
 
 }
 
@@ -175,7 +177,7 @@ max-width:650px;
 
 .hero-text h1{
 
-font-size:62px;
+font-size:60px;
 
 margin-bottom:10px;
 
@@ -189,9 +191,9 @@ color:#00EAFF;
 
 .hero-text h3{
 
-font-size:26px;
+font-size:25px;
 
-color:#bcc6d8;
+color:#B7C3D3;
 
 margin-bottom:20px;
 
@@ -199,11 +201,11 @@ margin-bottom:20px;
 
 .hero-text p{
 
-font-size:17px;
-
 line-height:1.8;
 
-color:#d9e2ec;
+font-size:17px;
+
+color:#D5DFEA;
 
 margin-bottom:35px;
 
@@ -223,37 +225,35 @@ flex-wrap:wrap;
 
 padding:15px 28px;
 
-background:#00EAFF;
-
-border:none;
-
 border-radius:14px;
-
-font-size:16px;
 
 font-weight:700;
 
-cursor:pointer;
-
 text-decoration:none;
-
-color:black;
 
 transition:.3s;
 
 }
 
-.btn:hover{
+.primary{
 
-transform:translateY(-5px);
+background:#00EAFF;
 
-box-shadow:0 0 25px rgba(0,234,255,.45);
+color:black;
 
 }
 
-.btn-outline{
+.primary:hover{
 
-background:transparent;
+transform:translateY(-5px);
+
+box-shadow:
+
+0 0 30px rgba(0,234,255,.5);
+
+}
+
+.secondary{
 
 border:2px solid #00EAFF;
 
@@ -261,7 +261,7 @@ color:#00EAFF;
 
 }
 
-.btn-outline:hover{
+.secondary:hover{
 
 background:#00EAFF;
 
@@ -277,9 +277,9 @@ padding:90px 10%;
 
 .title{
 
-font-size:42px;
-
 text-align:center;
+
+font-size:42px;
 
 margin-bottom:50px;
 
@@ -293,7 +293,7 @@ display:grid;
 
 grid-template-columns:
 
-repeat(auto-fit,minmax(240px,1fr));
+repeat(auto-fit,minmax(220px,1fr));
 
 gap:25px;
 
@@ -301,7 +301,7 @@ gap:25px;
 
 .card{
 
-background:#0f172a;
+background:#0E172A;
 
 padding:28px;
 
@@ -309,7 +309,9 @@ border-radius:18px;
 
 transition:.3s;
 
-border:1px solid rgba(255,255,255,.06);
+border:
+
+1px solid rgba(255,255,255,.06);
 
 }
 
@@ -319,13 +321,13 @@ transform:translateY(-8px);
 
 box-shadow:
 
-0 0 25px rgba(0,234,255,.2);
+0 0 25px rgba(0,234,255,.25);
 
 }
 
 .card h3{
 
-margin-bottom:12px;
+margin-bottom:10px;
 
 }
 
@@ -335,11 +337,11 @@ padding:30px;
 
 text-align:center;
 
-color:#8da0b8;
-
 border-top:
 
 1px solid rgba(255,255,255,.08);
+
+color:#8FA4BE;
 
 }
 
@@ -383,9 +385,25 @@ Sana Saad
 
 <ul>
 
-<li><a href="#">Home</a></li>
+<li>
 
-<li><a href="#skills">Skills</a></li>
+<a href="#">
+
+Home
+
+</a>
+
+</li>
+
+<li>
+
+<a href="#skills">
+
+Skills
+
+</a>
+
+</li>
 
 </ul>
 
@@ -395,7 +413,9 @@ Sana Saad
 
 <div class="hero-image">
 
-<img src="sana-photo.png">
+<img
+src="sana-photo.png.png"
+alt="Sana Saad">
 
 </div>
 
@@ -405,7 +425,11 @@ Sana Saad
 
 Hello, I'm
 
-<span>Sana Saad</span>
+<span>
+
+Sana Saad
+
+</span>
 
 </h1>
 
@@ -417,22 +441,27 @@ Mechatronics Engineer • AI • Robotics
 
 <p>
 
-Passionate Mechatronics Engineering student interested in Artificial Intelligence,
+Passionate Mechatronics Engineering student focused on Artificial Intelligence,
 Machine Learning,
 Deep Learning,
-Computer Vision,
 Embedded Systems,
-Automation and Intelligent Robotics.
+Automation,
+Robotics,
+and Intelligent Systems.
 
-Focused on building impactful technologies and contributing to research and innovation.
+Actively seeking research opportunities,
+innovation projects,
+and impactful engineering experiences.
 
 </p>
 
 <div class="buttons">
 
 <a
+
 href="tel:+96176385909"
-class="btn">
+
+class="btn primary">
 
 📞 Contact Me
 
@@ -444,7 +473,7 @@ href="https://www.linkedin.com/in/sana-saad-955a58410"
 
 target="_blank"
 
-class="btn btn-outline">
+class="btn secondary">
 
 LinkedIn
 
@@ -510,7 +539,7 @@ Deep Learning
 
 <p>
 
-Neural Networks • Computer Vision
+Computer Vision • Neural Networks
 
 </p>
 
@@ -542,7 +571,7 @@ Robotics
 
 <p>
 
-Control Systems • Intelligent Automation
+Automation • Intelligent Systems
 
 </p>
 
@@ -558,7 +587,7 @@ Research
 
 <p>
 
-Literature Review • Problem Solving
+Problem Solving • Innovation
 
 </p>
 
