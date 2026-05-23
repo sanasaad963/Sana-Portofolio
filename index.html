@@ -70,6 +70,11 @@
     .modal{position:fixed;inset:0;background:rgba(0,0,0,.72);display:none;align-items:center;justify-content:center;z-index:10001;padding:20px}.modal.show{display:flex}.modal-box{width:min(720px,96%);border:1px solid rgba(0,234,255,.38);background:linear-gradient(180deg,rgba(8,20,42,.96),rgba(5,12,26,.96));border-radius:24px;padding:28px;box-shadow:0 0 60px rgba(0,234,255,.2);position:relative}.modal-close{position:absolute;top:16px;right:18px;background:transparent;color:var(--text);border:0;font-size:1.7rem;cursor:pointer}.modal-title{font-size:1.8rem;margin-bottom:12px;color:var(--cyan)}.modal-tags{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0 18px}.modal-tags span{font-size:.8rem;background:rgba(0,234,255,.15);border:1px solid rgba(0,234,255,.22);padding:6px 10px;border-radius:999px}.modal-text{color:#d5e3f5}.modal-hint{margin-top:18px;color:#93a8c4;font-size:.9rem}
     .copy-toast{position:fixed;bottom:92px;right:24px;background:rgba(8,20,42,.95);border:1px solid var(--cyan);padding:13px 16px;border-radius:12px;color:var(--cyan);font-weight:800;opacity:0;transform:translateY(15px);transition:.25s;z-index:10002}.copy-toast.show{opacity:1;transform:translateY(0)}
     .tilt{transform-style:preserve-3d}.tilt:hover .project-top i,.tilt:hover .skill-card i{transform:translateZ(20px)}
+
+    @media (hover:none), (pointer:coarse){
+      body{cursor:auto}
+      #cursorGlow{display:none}
+    }
   </style>
 </head>
 
@@ -234,7 +239,7 @@
       <h3 class="modal-title" id="modalTitle"></h3>
       <div class="modal-tags" id="modalTags"></div>
       <p class="modal-text" id="modalText"></p>
-      <p class="modal-hint">Project focus: applied engineering, intelligent systems, and real-world technology integration.</p>
+      <p class="modal-hint">Interactive note: this project is part of Sana's applied engineering and research-focused portfolio combining hardware, software, and intelligent systems.</p>
     </div>
   </div>
   <div class="copy-toast" id="copyToast">Copied!</div>
@@ -377,9 +382,25 @@
     typeLoop();
 
     const copyToast = document.getElementById('copyToast');
+    function copyToClipboard(text){
+      if (navigator.clipboard && window.isSecureContext) {
+        return navigator.clipboard.writeText(text);
+      }
+      const tempInput = document.createElement('textarea');
+      tempInput.value = text;
+      tempInput.style.position = 'fixed';
+      tempInput.style.left = '-9999px';
+      document.body.appendChild(tempInput);
+      tempInput.focus();
+      tempInput.select();
+      try { document.execCommand('copy'); } catch (err) {}
+      document.body.removeChild(tempInput);
+      return Promise.resolve();
+    }
+
     document.querySelectorAll('.copy-card').forEach(card => {
       card.addEventListener('click', () => {
-        navigator.clipboard.writeText(card.dataset.copy);
+        copyToClipboard(card.dataset.copy);
         copyToast.textContent = 'Copied: ' + card.dataset.copy;
         copyToast.classList.add('show');
         setTimeout(() => copyToast.classList.remove('show'), 1600);
